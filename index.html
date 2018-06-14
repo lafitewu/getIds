@@ -48,8 +48,10 @@
         function AjaxFn() {
             $.ajax({
                 url: "http://eg.wfcfly.top/api/captcha",
-                type: 'post',
+                type: "get",
+                dataType:"jsonp",
                 success:function(res) {
+                    console.log(res);
                     $(".yzm").html(res);
                 }
             })
