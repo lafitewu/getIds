@@ -6,7 +6,8 @@
     content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">  
 <title>JS获取手机型号和系统</title>  
 </head>  
-<body>  
+<body>
+    <label>验证码</label><div class="yzm"></div> 
 </body>  
 <script src="jquery-3.1.1.min.js"></script>  
 <script src="mobile-detect.min.js"></script>  
@@ -19,9 +20,12 @@
         }  
         return -1;  
     }  
-  
+    var H = $(window).height();
+    var W = $(window).width();
+    var xW = window.screen.width;
+    var xH = window.screen.height;
     var device_type = navigator.userAgent;//获取userAgent信息  
-    document.write(device_type);//打印到页面  
+    document.write("device_type:"+device_type+"浏览器大小："+H+"*"+W+"屏幕分辨率："+xW+"*"+xH);//打印到页面  
     var md = new MobileDetect(device_type);//初始化mobile-detect  
     var os = md.os();//获取系统  
     var model = "";  
@@ -36,6 +40,23 @@
             model = sss[i].substring(0, sss[i].indexOf("Build/"));  
         }  
     }  
-    alert(os + "---" + model);//打印系统版本和手机型号  
+    // alert(os + "---" + model);//打印系统版本和手机型号  
 </script>  
 </html>
+<script>
+    $(function(){
+        function AjaxFn() {
+            $.ajax({
+                url: "http://eg.wfcfly.top/api/captcha",
+                type: 'post',
+                success:function(res) {
+                    $(".yzm").html(res);
+                }
+            })
+        }
+        AjaxFn();
+        $(".yzm").click(function() {
+            AjaxFn();
+        });
+    });
+</script>
