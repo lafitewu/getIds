@@ -32,7 +32,7 @@
     var xW = window.screen.width;
     var xH = window.screen.height;
     var device_type = navigator.userAgent;//获取userAgent信息  
-    // document.write("device_type:"+device_type+"浏览器大小："+H+"*"+W+"屏幕分辨率："+xW+"*"+xH);//打印到页面  
+    document.write("device_type:"+device_type+"浏览器大小："+H+"*"+W+"屏幕分辨率："+xW+"*"+xH);//打印到页面  
     var md = new MobileDetect(device_type);//初始化mobile-detect  
     var os = md.os();//获取系统  
     var model = "";  
@@ -50,7 +50,7 @@
     // alert(os + "---" + model);//打印系统版本和手机型号  
 </script>  
 </html>
-<script>
+<!-- <script>
     $(function(){
         function AjaxFn() {
             $.ajax({
@@ -70,4 +70,4 @@
             AjaxFn();
         });
     });
-</script>
+</script> -->
